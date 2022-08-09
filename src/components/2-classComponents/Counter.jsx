@@ -12,48 +12,43 @@
 import React, { Component } from "react";
 
 class Counter extends Component {
-
   constructor(props) {
-    super(props)
-  
+    super(props);
+
     this.state = {
-       count: props.count || 0,
-    }
+      count: props.count || 0,
+    };
 
     //*handleInc metodunun Counter classına bağlanması
-    this.handleInc = this.handleInc.bind(this)
-
+    this.handleInc = this.handleInc.bind(this);
   }
 
-handleInc() {
-  this.setState({
-    count:this.state.count + 1
-  });
-};
+  handleInc() {
+    this.setState({
+      count: this.state.count + 1,
+    });
+  }
 
-
-//*Arrow function kullanırken "bind" kullanmıyoruz..
-handleDec = ()=>{
-  this.setState({
-    count: this.state.count - 1
-  });
-};
-
-
+  //*Arrow function kullanırken "bind" kullanmıyoruz..
+  handleDec = () => {
+    this.setState({
+      count: this.state.count - 1,
+    });
+  };
 
   render() {
     return (
-      <h1 className="container text-center mt-4">
-        <h1 className="display-4 text-danger m-4">COUNT:{this.state.count}</h1>
+      <div className="container text-center mt-4">
+        <h1 className="display-4 text-danger m-4">classComponent COUNT:{this.state.count}</h1>
 
         <button onClick={this.handleInc} className="btn btn-success">
           INCREASE
         </button>
 
-        <button onClick={this.handleDec}  className="btn btn-warning">
+        <button onClick={this.handleDec} className="btn btn-warning">
           DECREASE
         </button>
-      </h1>
+      </div>
     );
   }
 }

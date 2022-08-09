@@ -18,7 +18,7 @@
 //?    https://reactjs.org/docs/hooks-rules.html
 //* =====================================================================
 
-import { useState } from 'react';
+import { useState } from "react";
 
 const UseStateExample = () => {
   //* useState en cok kullanilan Hook'tur.
@@ -27,54 +27,57 @@ const UseStateExample = () => {
   //?  1.si state degiskenidir.
   //?  2.si ise state'i degistirmeye izin veren bir setter metodudur.
   //? useState parametre olarak state'in ilk degerini alir.
-  const [count, setCount] = useState(0); //! array destruc.
+
+  const [count, setCount] = useState(0); //*array desctruction...
 
   const [info, setInfo] = useState({
-    name: 'Ahmet Yilmaz',
-    email: 'ay@gmail.com',
+    name: "Ahmet Yılmaz",
+    email: "ay@gmail.com",
     age: 32,
   });
-
+ 
   const inc = () => {
     setCount(count + 1);
   };
-
+ 
   const dec = () => {
     setCount(count - 1);
   };
 
-  const incAge = () => {
-    // setInfo(info.age + 1);
-    // console.log(info.age);
-    // setInfo({ name: 'mehmet yilmaz', email: 'my@gmail.com', age: 44 });
-    //? key:Value
-    setInfo({ ...info, age: info.age + 1 });
-  };
 
-  console.log(info);
+  const incAge = ()=>{
+
+    // setInfo({name:"Mehmet", email:"my@gmail.com", age:44})  
+    //?key:Value
+    setInfo({...info, age : info.age + 1})
+    console.log(info)
+  }
+
+
+
   return (
     <div className="container text-center mt-4">
       <section>
-        <h1 className="display-4 text-danger m-4">USESTATE COUNT:{count}</h1>
+        <h1 className="display-4 text-danger m-4">useState COUNT: {count} </h1>
+
         <button onClick={inc} className="btn btn-success">
-          INC
+          INCREASE
         </button>
         <button onClick={() => setCount(0)} className="btn btn-dark">
-          CLR
+          CLEAR
         </button>
+
         <button onClick={dec} className="btn btn-warning">
-          DEC
+          DECREASE
         </button>
       </section>
 
       <section>
-        <h1 className="display-4 text-danger m-4">USESTATE OBJECT</h1>
+        <h1 className="display-4 text-danger m-4">useState Object: {count} </h1>
         <h2>{info.name}</h2>
-        <h3>{info.email}</h3>
-        <h3>{info.age}</h3>
-        <button onClick={incAge} className="btn btn-info">
-          inc age
-        </button>
+        <h3>{info.email} </h3>
+        <h3>{info.age} </h3>
+        <button onClick={incAge} className= "btn btn-info" >inc age</button>
       </section>
     </div>
   );
